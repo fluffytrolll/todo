@@ -1,0 +1,1 @@
+export { default as TackList } from './ui/TackList.vue'

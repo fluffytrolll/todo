@@ -1,0 +1,20 @@
+@mixin font($font-family, $font-file, $font-weight) {
+    @font-face {
+        font-family: $font-family;
+        src: url($font-file + '.ttf');
+        src: url($font-file + '.woff2') format('woff2');
+        font-weight: $font-weight;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+@include font('Inter', '/fonts/Inter-Thin', 100);
+@include font('Inter', '/fonts/Inter-ExtraLight', 200);
+@include font('Inter', '/fonts/Inter-Light', 300);
+@include font('Inter', '/fonts/Inter-Regular', 400);
+@include font('Inter', '/fonts/Inter-Medium', 500);
+@include font('Inter', '/fonts/Inter-SemiBold', 600);
+@include font('Inter', '/fonts/Inter-Bold', 700);
+@include font('Inter', '/fonts/Inter-ExtraBold', 800);
+@include font('Inter', '/fonts/Inter-Black', 900);

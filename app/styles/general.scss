@@ -1,0 +1,38 @@
+:root {
+    --c-primary: #0D0D0D;
+    --c-accent: #00DC82;
+    --c-accent-second: #dccd00;
+
+    --c-white: #fff;
+    --c-blue: #E1E7EF;
+    --c-blue-dark: #8A9CB0;
+
+    --c-gray: #262626;
+    --c-gray-dark: #0D0D0D;
+    --c-gray-light: #808080;
+    --c-gray-blue: #1A1A1A;
+    --c-gray-black: #333;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+    scroll-behavior: smooth;
+}
+
+[hidden] {
+    display: none;
+}
+
+[hide] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
