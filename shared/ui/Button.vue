@@ -1,6 +1,6 @@
 <!-- src/shared/ui/Button.vue -->
 <template>
-  <button v-bind="$attrs" v-on:click="handleClick">
+  <button v-bind="$attrs" @click="handleClick">
     <slot></slot>
   </button>
 </template>

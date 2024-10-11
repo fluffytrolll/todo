@@ -1,24 +1,21 @@
 <template>
-  <span class="chips">
-    Задачи завершены
-    <i>{{ successed }}</i>
+  <span class="chips" :class="classNames">
+    {{ title || "Всего" }}
+    <i>{{ count || 0 }}</i>
   </span>
 </template>
 
 <script setup lang="ts">
-import { useTaskStore } from "../model/taskStore";
-
-const taskStore = useTaskStore();
-
-const successed = computed(() => {
-  const tasks = taskStore.tasks;
-  return tasks.filter((task) => task.status).length;
-});
+const props = defineProps<{
+  title?: string;
+  classNames?: string[];
+  count?: number;
+}>();
 </script>
 
 <style scoped lang="scss">
 .chips {
-  color: var(--c-accent-second, #dccd00);
+  color: var(--c-gray, #808080);
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -40,5 +37,13 @@ const successed = computed(() => {
     font-weight: 700;
     line-height: normal;
   }
+}
+
+.chips.accent {
+  color: var(--c-accent, #00dc82);
+}
+
+.chips.secondary {
+  color: var(--c-white, #fff);
 }
 </style>

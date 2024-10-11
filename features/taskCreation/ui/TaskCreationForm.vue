@@ -1,6 +1,6 @@
 <template>
   <form class="form" method="post" @submit="submitTask">
-    <Input v-model="task.text" name="task" placeholder="Введите задачу" />
+    <Input v-model="text" name="task" placeholder="Введите задачу" />
     <Button type="submit" @click="submitTask">Создать</Button>
   </form>
 </template>
@@ -10,20 +10,24 @@ import { Button, Input } from "~/shared/ui";
 import { useTaskCreation } from "../model/useTaskCreation";
 import type { Task } from "~/entities/task";
 
-const task = ref<Task>({
-  text: "",
-  timestamp: Date.now(),
-  status: false
-});
+const text = ref<string>("");
 
 const { createTask } = useTaskCreation();
 
 const submitTask = (e: Event) => {
   e.preventDefault();
 
-  if (task.value.text.trim()) {
+  const task = ref<Task>({
+    text: text.value,
+    timestamp: Date.now(),
+    status: false,
+  });
+
+  if (text.value.trim()) {
     createTask(task.value);
   }
+
+  text.value = "";
 };
 </script>
 
@@ -38,5 +42,6 @@ const submitTask = (e: Event) => {
   gap: 8px;
   max-width: 736px;
   width: 100%;
+  padding: 0 8px;
 }
 </style>
